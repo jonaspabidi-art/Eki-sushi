@@ -203,25 +203,26 @@
       overflow: hidden;
       background: var(--bg);
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(184,92,56,0.06) 0%, transparent 70%),
-        var(--bg);
+    /* Blurred background image */
+    .hero-bg-img {
+      position: absolute; inset: -20px;
+      background: url('uploads/IMG_8442.jpg') center center / cover no-repeat;
+      filter: blur(18px) saturate(0.7) brightness(1.15);
+      transform: scale(1.08);
+      z-index: 0;
     }
-    .hero-bg::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,0,0,0.025) 40px),
-        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,0,0,0.025) 40px);
+    /* Warm cream overlay so image stays very subtle */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(250,248,244,0.82) 0%, rgba(250,248,244,0.92) 100%);
     }
     /* Kanji watermark */
     .hero-kanji {
-      position: absolute;
+      position: absolute; z-index: 2;
       font-family: var(--serif);
       font-size: 28vw;
-      color: rgba(184,92,56,0.05);
+      color: rgba(184,92,56,0.04);
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
@@ -229,7 +230,12 @@
       user-select: none;
       line-height: 1;
     }
-    .hero-content { position: relative; z-index: 2; max-width: 800px; }
+    .hero-content {
+      position: relative; z-index: 3;
+      max-width: 760px;
+      width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+    }
     .hero-tag {
       display: inline-block;
       font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
@@ -240,12 +246,13 @@
       content: '—'; margin: 0 0.5em; opacity: 0.4;
     }
     .hero-logo {
-      width: 100px; height: 100px;
+      width: 108px; height: 108px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 2rem;
-      border: 2px solid rgba(184,92,56,0.15);
-      box-shadow: 0 4px 20px rgba(184,92,56,0.1);
+      margin: 0 auto 2rem;
+      display: block;
+      border: 2px solid rgba(184,92,56,0.18);
+      box-shadow: 0 6px 28px rgba(184,92,56,0.13);
     }
     h1 {
       font-family: var(--serif);
@@ -299,21 +306,6 @@
       display: inline-flex; align-items: center;
     }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-    .hero-scroll {
-      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-      animation: bob 2s ease-in-out infinite;
-    }
-    .hero-scroll::after {
-      content: '';
-      display: block; width: 1px; height: 36px;
-      background: linear-gradient(to bottom, var(--muted), transparent);
-    }
-    @keyframes bob {
-      0%,100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(6px); }
-    }
 
     /* ── SECTIONS COMMON ── */
     section { padding: 5rem 5vw; }
@@ -409,55 +401,46 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── VISUAL SHOWCASE ── */
+    /* ── GALLERY ── */
     #galleri {
-      background: var(--bg);
-      padding-bottom: 0;
+      background: var(--bg2);
+      padding-bottom: 5rem;
     }
     .visual-intro { margin-bottom: 2.5rem; }
-    .visual-showcase {
+    .gallery-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      grid-template-rows: 300px 300px;
-      gap: 6px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
-    .vs-main {
-      grid-column: 1/2; grid-row: 1/3;
-      position: relative; overflow: hidden;
-      border-radius: 12px;
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      aspect-ratio: 3/4;
+      background: var(--card2);
     }
-    .vs-stack {
-      grid-column: 2/3; grid-row: 1/3;
-      display: flex; flex-direction: column; gap: 6px;
-    }
-    .vs-item {
-      flex: 1;
-      position: relative; overflow: hidden;
-      border-radius: 12px;
-    }
-    .vs-main img, .vs-item img {
+    .gallery-card img {
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center center;
       display: block;
-      transition: transform 0.6s ease;
-      /* Subtle warm tint overlay handled via ::after */
+      transition: transform 0.65s ease;
     }
-    .vs-main:hover img, .vs-item:hover img { transform: scale(1.04); }
-    .vs-overlay {
+    .gallery-card:hover img { transform: scale(1.05); }
+    .gallery-card-overlay {
       position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(28,23,20,0.7) 0%, transparent 100%);
-      padding: 1.2rem 1rem 1rem;
-      display: flex; flex-direction: column; gap: 2px;
+      background: linear-gradient(to top, rgba(20,15,12,0.72) 0%, transparent 70%);
+      padding: 1.4rem 1.1rem 1.1rem;
+      display: flex; flex-direction: column; gap: 3px;
     }
-    .vs-label {
+    .gallery-card-label {
       font-family: var(--serif);
       color: #fff; font-size: 1rem; font-weight: 400;
       letter-spacing: 0.04em;
     }
-    .vs-sub {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.75rem; letter-spacing: 0.05em;
+    .gallery-card-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.72rem; letter-spacing: 0.06em;
     }
 
     /* ── ÖPPETTIDER & KONTAKT ── */
@@ -552,19 +535,9 @@
       .kontakt-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .karta-inner { grid-template-columns: 1fr; }
 
-      /* Gallery mobile: single column */
-      .visual-showcase {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-      }
-      .vs-main { grid-column: 1; grid-row: auto; height: 260px; }
-      .vs-stack { grid-column: 1; grid-row: auto; flex-direction: row; height: 180px; }
-      .vs-item { flex: 1; }
-
-      /* Image size caps on mobile */
-      .vs-main img, .vs-item img {
-        max-height: 300px;
-      }
+      /* Gallery mobile */
+      .gallery-grid { grid-template-columns: 1fr; gap: 12px; }
+      .gallery-card { aspect-ratio: 4/3; }
 
       footer { flex-direction: column; text-align: center; }
 
@@ -620,6 +593,7 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-bg-img"></div>
   <div class="hero-bg"></div>
   <div class="hero-kanji">駅</div>
   <div class="hero-content">
@@ -632,7 +606,6 @@
       <a href="#karta" class="btn-outline">Hitta hit</a>
     </div>
   </div>
-  <div class="hero-scroll">Scrolla</div>
 </section>
 
 <!-- MENY -->
@@ -801,39 +774,37 @@
   <p style="margin-top:1.5rem; font-size:0.78rem; color:var(--muted);">Vid allergi — prata gärna med personalen innan beställning.</p>
 </section>
 
-<!-- VISUELL SEKTION -->
+<!-- GALLERI -->
 <section id="galleri">
   <div class="visual-intro">
     <div class="section-label anim">Tillagat med kärlek</div>
     <h2 class="anim anim-delay-1">Varje rätt — ett hantverk</h2>
     <p class="anim anim-delay-2" style="color:var(--muted);font-size:0.92rem;max-width:480px;margin-top:0.5rem;">Färska råvaror, omsorg i varje detalj. Välkommen att uppleva det själv.</p>
   </div>
-</section>
-<div class="visual-showcase">
-  <div class="vs-main anim anim-scale">
-    <img src="uploads/IMG_8442.jpg" alt="Sushi Eki festplanka" loading="lazy" />
-    <div class="vs-overlay">
-      <span class="vs-label">Festplanka</span>
-      <span class="vs-sub">Lax, tonfisk, bläckfisk & nigiri</span>
+  <div class="gallery-grid">
+    <div class="gallery-card anim anim-scale">
+      <img src="uploads/IMG_8442.jpg" alt="Sushi Eki festplanka" loading="lazy" />
+      <div class="gallery-card-overlay">
+        <span class="gallery-card-label">Festplanka</span>
+        <span class="gallery-card-sub">Lax, tonfisk, bläckfisk & nigiri</span>
+      </div>
     </div>
-  </div>
-  <div class="vs-stack">
-    <div class="vs-item anim anim-scale anim-delay-1">
+    <div class="gallery-card anim anim-scale anim-delay-1">
       <img src="uploads/IMG_8443.jpg" alt="Sushi Eki sushiplanka" loading="lazy" />
-      <div class="vs-overlay">
-        <span class="vs-label">Sushiplanka</span>
-        <span class="vs-sub">Handrullade nigiri & maki</span>
+      <div class="gallery-card-overlay">
+        <span class="gallery-card-label">Sushiplanka</span>
+        <span class="gallery-card-sub">Handrullade nigiri & maki</span>
       </div>
     </div>
-    <div class="vs-item anim anim-scale anim-delay-2">
+    <div class="gallery-card anim anim-scale anim-delay-2">
       <img src="uploads/IMG_8441.jpg" alt="Sushi Eki avokadorullar" loading="lazy" />
-      <div class="vs-overlay">
-        <span class="vs-label">Avokadorullar</span>
-        <span class="vs-sub">Krispiga maki med sesam & sås</span>
+      <div class="gallery-card-overlay">
+        <span class="gallery-card-label">Avokadorullar</span>
+        <span class="gallery-card-sub">Krispiga maki med sesam & sås</span>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ÖPPETTIDER & KONTAKT -->
 <section id="kontakt">
