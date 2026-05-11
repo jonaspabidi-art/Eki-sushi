@@ -113,13 +113,17 @@
     @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
     @media (max-width: 560px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; text-align: center; } }
 
-    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) {
-      .blog-grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .nav-call-btn { display: flex; }
-      footer { flex-direction: column; text-align: center; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .blog-hero { padding: 3.5rem 5vw 3rem; }
+    }
+    @media (max-width: 540px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card-img { height: 190px; }
+      .blog-card-body { padding: 1.2rem; }
     }
   </style>
 </head>

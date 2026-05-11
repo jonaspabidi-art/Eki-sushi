@@ -121,10 +121,22 @@
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.4rem 5vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; color: #4a4540; }
     @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
     @media (max-width: 560px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; text-align: center; } }
-    @media (max-width: 600px) {
-      .nav-links { display: none; } .hamburger { display: flex; } .nav-call-btn { display: flex; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-call-btn { display: flex; }
+      .article-hero { height: min(45vh, 320px); }
       .info-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 540px) {
+      .article-hero { height: min(40vh, 260px); }
+      .article-wrap { padding: 0 5vw 4rem; }
+      .article-header h1 { font-size: 1.6rem; }
+      .article-body h2 { font-size: 1.25rem; }
+      .article-body h3 { font-size: 1.05rem; }
+      .article-cta { padding: 1.5rem 1.2rem; }
+      .cta-buttons { flex-direction: column; }
+      .btn-primary, .btn-outline { justify-content: center; padding: 0.8rem 1.4rem; font-size: 0.8rem; }
     }
   </style>
 </head>

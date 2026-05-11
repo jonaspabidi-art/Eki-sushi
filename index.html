@@ -590,25 +590,23 @@
       h1 { font-size: 2.2rem; }
       h2 { font-size: 1.7rem; }
 
+      .hero-content { padding: 2.5rem 2rem; max-width: 100%; }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .hero-btns .btn-primary, .hero-btns .btn-outline { justify-content: center; padding: 0.9rem 1.4rem; font-size: 0.82rem; }
+
       .kontakt-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .karta-inner { grid-template-columns: 1fr; }
-
-
-      footer { flex-direction: column; text-align: center; }
-
-      .hero-btns .btn-primary,
-      .hero-btns .btn-outline {
-        padding: 0.85rem 1.6rem;
-        font-size: 0.78rem;
-      }
 
       .menu-tabs { gap: 0.4rem; }
       .menu-tab { padding: 0.5rem 0.9rem; font-size: 0.72rem; }
     }
 
     @media (max-width: 480px) {
+      section { padding: 3rem 5vw; }
+      .hero-content { padding: 2rem 1.5rem; }
       .karta-inner { padding-bottom: 3rem; }
       .menu-grid { grid-template-columns: 1fr; }
+      .menu-item { padding: 0.8rem 0; }
     }
   </style>
 </head>
