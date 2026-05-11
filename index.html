@@ -405,6 +405,48 @@
       border-bottom: 1px solid var(--border);
     }
 
+    /* ── OM OSS ── */
+    #om-oss {
+      background: var(--bg);
+      padding: 0;
+    }
+    .om-oss-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      min-height: 580px;
+    }
+    .om-oss-img {
+      position: relative; overflow: hidden;
+    }
+    .om-oss-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .om-oss-img:hover img { transform: scale(1.03); }
+    .om-oss-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 5vw;
+      background: var(--bg2);
+    }
+    .om-oss-text .section-label { margin-bottom: 0.7rem; }
+    .om-oss-text h2 { margin-bottom: 0.6rem; }
+    .om-oss-text .section-divider { margin: 1rem 0 1.6rem; }
+    .om-oss-text p {
+      color: var(--muted); font-size: 0.95rem;
+      line-height: 1.8; max-width: 380px;
+      margin-bottom: 1.2rem;
+    }
+    .om-oss-text p:last-of-type { margin-bottom: 0; }
+
+    @media (max-width: 768px) {
+      .om-oss-inner { grid-template-columns: 1fr; }
+      .om-oss-img { height: 320px; }
+      .om-oss-text { padding: 3rem 5vw; }
+      .om-oss-text p { max-width: 100%; }
+    }
+
     /* ── SHOWCASE ── */
     #galleri {
       background: var(--bg);
@@ -571,7 +613,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#meny">Meny</a></li>
-    <li><a href="#galleri">Galleri</a></li>
+    <li><a href="#om-oss">Om oss</a></li>
     <li><a href="#kontakt">Öppettider</a></li>
     <li><a href="#karta">Hitta hit</a></li>
     <li><a href="blog.html">Blogg</a></li>
@@ -589,7 +631,7 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="#meny" onclick="closeMobile()">Meny</a>
-  <a href="#galleri" onclick="closeMobile()">Galleri</a>
+  <a href="#om-oss" onclick="closeMobile()">Om oss</a>
   <a href="#kontakt" onclick="closeMobile()">Öppettider</a>
   <a href="#karta" onclick="closeMobile()">Hitta hit</a>
   <a href="blog.html" onclick="closeMobile()">Blogg</a>
@@ -777,6 +819,23 @@
   </div>
 
   <p style="margin-top:1.5rem; font-size:0.78rem; color:var(--muted);">Vid allergi — prata gärna med personalen innan beställning.</p>
+</section>
+
+<!-- OM OSS -->
+<section id="om-oss">
+  <div class="om-oss-inner">
+    <div class="om-oss-img anim anim-scale">
+      <img src="uploads/interior.webp" alt="Sushi Eki restauranginteriör med japansk väggmålning" loading="lazy" />
+    </div>
+    <div class="om-oss-text anim anim-delay-1">
+      <div class="section-label">Om oss</div>
+      <h2>En plats för japansk matkultur</h2>
+      <div class="section-divider"></div>
+      <p>Sushi Eki är mer än en restaurang — det är en upplevelse. Hos oss möts traditionell japansk matlagning och moderna smaker i en atmosfär som känns både välkomnande och inspirerande.</p>
+      <p>Från den färgstarka väggmålningen till varje handrullad bit sushi bär vår restaurang en tydlig identitet: kärlek till japansk kultur och passion för god mat. Vi är stolta över att vara ett hemma-borta för göteborgarna på Hisingen.</p>
+      <p>Besök oss på Gunnestorpsvägen 135 — vi ser fram emot att välkomna dig.</p>
+    </div>
+  </div>
 </section>
 
 <!-- SHOWCASE -->
