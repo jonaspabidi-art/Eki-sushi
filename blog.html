@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogg – Sushi Eki Göteborg | Tips, recept & nyheter om sushi</title>
+  <meta name="description" content="Sushi Ekis blogg — guider om sushi, poké bowls, japansk mat och tips om att äta sushi i Göteborg och Hisingen." />
+  <meta name="keywords" content="sushi blogg, sushi guide, poké bowl göteborg, japansk mat göteborg, sushi hisingen" />
+  <link rel="canonical" href="https://sushi-eki.com/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blogg – Sushi Eki Göteborg" />
+  <meta property="og:description" content="Guider om sushi, poké bowls och japansk matkultur — från Sushi Eki på Hisingen." />
+  <meta property="og:url" content="https://sushi-eki.com/blog.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #b85c38;
+      --accent-light: #c96b47;
+      --bg: #faf8f4;
+      --bg2: #f2ede6;
+      --card: #ffffff;
+      --border: rgba(26,21,16,0.1);
+      --text: #1c1714;
+      --muted: #7a6f63;
+      --serif: 'Noto Serif JP', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 66px;
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; }
+    .nav-logo span { font-family: var(--serif); font-size: 1rem; color: var(--text); font-weight: 400; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 4px; font-size: 0.78rem !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 66px; left: 0; right: 0; background: rgba(250,248,244,0.98); border-bottom: 1px solid var(--border); padding: 1.5rem 5vw 2rem; z-index: 99; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 0.85rem 0; color: var(--text); text-decoration: none; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .nav-call-btn { display: none; align-items: center; gap: 7px; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.55rem 1.1rem; border-radius: 50px; white-space: nowrap; }
+
+    /* HERO */
+    .blog-hero {
+      background: var(--bg2);
+      padding: 5rem 5vw 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .blog-hero .label { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.8rem; }
+    .blog-hero h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
+    .blog-hero p { color: var(--muted); font-size: 1rem; max-width: 520px; margin: 0 auto; }
+
+    /* BLOG GRID */
+    .blog-section { padding: 4rem 5vw 6rem; max-width: 1200px; margin: 0 auto; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,21,16,0.1); }
+    .blog-card-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .blog-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-tag { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.6rem; }
+    .blog-card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; line-height: 1.35; margin-bottom: 0.7rem; color: var(--text); }
+    .blog-card-excerpt { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .blog-card-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); }
+    .read-more { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.05em; }
+
+    /* FOOTER */
+    footer { background: #1c1714; border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 5vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo img { height: 38px; width: 38px; border-radius: 50%; opacity: 0.8; }
+    .footer-copy { font-size: 0.75rem; color: #7a7066; text-align: center; flex: 1; }
+    .footer-copy a { color: inherit; }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 0.75rem; color: #7a7066; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: #f0ebe3; }
+
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-call-btn { display: flex; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="uploads/logo-1776849222894.png" alt="Sushi Eki logotyp" />
+    <span>Sushi Eki</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#meny">Meny</a></li>
+    <li><a href="index.html#kontakt">Öppettider</a></li>
+    <li><a href="index.html#karta">Hitta hit</a></li>
+    <li><a href="blog.html" class="active">Blogg</a></li>
+    <li><a href="tel:+46314020400" class="nav-cta">031‑40 20 40</a></li>
+  </ul>
+  <a href="tel:+46314020400" class="nav-call-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 11.5 19.79 19.79 0 01.87 2.86 2 2 0 012.85 1h3a2 2 0 012 1.72c.128.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l.97-.97a2 2 0 012.11-.45c.907.339 1.85.572 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Beställ
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Öppna meny"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html#meny" onclick="this.closest('.mobile-menu').classList.remove('open')">Meny</a>
+  <a href="index.html#kontakt" onclick="this.closest('.mobile-menu').classList.remove('open')">Öppettider</a>
+  <a href="index.html#karta" onclick="this.closest('.mobile-menu').classList.remove('open')">Hitta hit</a>
+  <a href="blog.html">Blogg</a>
+  <a href="tel:+46314020400">031‑40 20 40</a>
+</div>
+
+<div class="blog-hero">
+  <div class="label">Kunskap & inspiration</div>
+  <h1>Sushi Ekis blogg</h1>
+  <p>Guider om sushi, poké bowls och japansk matkultur — för dig som vill lära dig mer om smakerna från Japan.</p>
+</div>
+
+<div class="blog-section">
+  <div class="blog-grid">
+
+    <a href="blog-sushi-guide.html" class="blog-card">
+      <img class="blog-card-img"
+        src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80&auto=format&fit=crop"
+        alt="Sushi tallrik med olika typer av nigiri och maki rolls" />
+      <div class="blog-card-body">
+        <div class="blog-card-tag">Sushi-guide</div>
+        <div class="blog-card-title">Komplett guide: Alla typer av sushi — vad ska du beställa?</div>
+        <div class="blog-card-excerpt">Nigiri, maki, inside-out rullar eller sashimi? Vi reder ut skillnaderna och hjälper dig välja rätt vid nästa besök.</div>
+        <div class="blog-card-meta">
+          <span>8 min läsning</span>
+          <span class="read-more">Läs mer →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-poke-bowl.html" class="blog-card">
+      <img class="blog-card-img"
+        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80&auto=format&fit=crop"
+        alt="Färgglad poké bowl med lax, avokado och grönsaker" />
+      <div class="blog-card-body">
+        <div class="blog-card-tag">Poké Bowl</div>
+        <div class="blog-card-title">Poké Bowl — Göteborgs godaste bowl, förklarad från grunden</div>
+        <div class="blog-card-excerpt">Vad är egentligen en poké bowl, varför har den blivit så populär och hur väljer du det bästa alternativet på menyn?</div>
+        <div class="blog-card-meta">
+          <span>6 min läsning</span>
+          <span class="read-more">Läs mer →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-sushi-hisingen.html" class="blog-card">
+      <img class="blog-card-img"
+        src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=800&q=80&auto=format&fit=crop"
+        alt="Japansk restaurangmiljö med sushi och stämningsfull belysning" />
+      <div class="blog-card-body">
+        <div class="blog-card-tag">Göteborg & Hisingen</div>
+        <div class="blog-card-title">Bästa sushi på Hisingen — din guide till Sushi Eki i Göteborg</div>
+        <div class="blog-card-excerpt">Letar du efter äkta japansk sushi på Hisingen? Vi berättar om vad som gör Sushi Eki till ett självklart val i Göteborg.</div>
+        <div class="blog-card-meta">
+          <span>5 min läsning</span>
+          <span class="read-more">Läs mer →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="uploads/logo-1776849222894.png" alt="Sushi Eki" /></div>
+  <div class="footer-copy">&copy; 2025 Sushi Eki · Gunnestorpsvägen 135, Göteborg · <a href="tel:+46314020400">031‑40 20 40</a></div>
+  <ul class="footer-links">
+    <li><a href="index.html#meny">Meny</a></li>
+    <li><a href="blog.html">Blogg</a></li>
+    <li><a href="https://www.instagram.com/sushi.eki/" target="_blank" rel="noopener">Instagram</a></li>
+  </ul>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
