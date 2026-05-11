@@ -128,13 +128,28 @@
     .back-link:hover { color: var(--accent); }
 
     /* Footer */
-    footer { background: #1c1714; border-top: 1px solid rgba(255,255,255,0.06); padding: 2.5rem 5vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo img { height: 38px; width: 38px; border-radius: 50%; opacity: 0.8; }
-    .footer-copy { font-size: 0.75rem; color: #7a7066; text-align: center; flex: 1; }
-    .footer-copy a { color: inherit; }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-    .footer-links a { font-size: 0.75rem; color: #7a7066; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
-    .footer-links a:hover { color: #f0ebe3; }
+    footer { background: #1c1714; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; text-decoration: none; }
+    .footer-brand-logo img { height: 42px; width: 42px; border-radius: 50%; object-fit: cover; }
+    .footer-brand-logo span { font-family: var(--serif); font-size: 1.05rem; color: #f0ebe3; font-weight: 400; }
+    .footer-tagline { font-size: 0.85rem; color: #7a7066; line-height: 1.65; margin-bottom: 1.4rem; max-width: 220px; }
+    .footer-social { display: inline-flex; align-items: center; gap: 7px; color: #7a7066; text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-social:hover { color: #f0ebe3; }
+    .footer-col-title { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: #f0ebe3; font-weight: 500; margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.65rem; }
+    .footer-col ul li a { color: #7a7066; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #f0ebe3; }
+    .footer-hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; color: #7a7066; margin-bottom: 0.55rem; }
+    .footer-hours-row span:last-child { color: #9a908a; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 0.8rem; }
+    .footer-contact-item svg { opacity: 0.45; flex-shrink: 0; margin-top: 2px; }
+    .footer-contact-item a { color: #7a7066; text-decoration: none; font-size: 0.85rem; line-height: 1.5; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: #f0ebe3; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 1.4rem 5vw; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.72rem; color: #4a4540; }
+    @media (max-width: 900px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+    @media (max-width: 560px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; text-align: center; } }
 
     @media (max-width: 600px) {
       .nav-links { display: none; }
@@ -273,13 +288,55 @@
 </div>
 
 <footer>
-  <div class="footer-logo"><img src="uploads/logo-1776849222894.png" alt="Sushi Eki" /></div>
-  <div class="footer-copy">&copy; 2025 Sushi Eki · Gunnestorpsvägen 135, Göteborg · <a href="tel:+46314020400">031‑40 20 40</a></div>
-  <ul class="footer-links">
-    <li><a href="index.html#meny">Meny</a></li>
-    <li><a href="blog.html">Blogg</a></li>
-    <li><a href="https://www.instagram.com/sushi.eki/" target="_blank" rel="noopener">Instagram</a></li>
-  </ul>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand-logo">
+        <img src="uploads/logo-1776849222894.png" alt="Sushi Eki logotyp" />
+        <span>Sushi Eki</span>
+      </a>
+      <p class="footer-tagline">Japansk sushi & poké bowls på Hisingen i Göteborg. Alltid färska råvaror.</p>
+      <a href="https://www.instagram.com/sushi.eki/" target="_blank" rel="noopener" class="footer-social">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @sushi.eki
+      </a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Navigera</div>
+      <ul>
+        <li><a href="index.html#meny">Meny</a></li>
+        <li><a href="index.html#om-oss">Om oss</a></li>
+        <li><a href="index.html#kontakt">Öppettider</a></li>
+        <li><a href="index.html#karta">Hitta hit</a></li>
+        <li><a href="blog.html">Blogg</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Öppettider</div>
+      <div class="footer-hours-row"><span>Mån – Tor</span><span>11:00 – 20:00</span></div>
+      <div class="footer-hours-row"><span>Fredag</span><span>11:00 – 21:00</span></div>
+      <div class="footer-hours-row"><span>Lördag</span><span>12:00 – 21:00</span></div>
+      <div class="footer-hours-row"><span>Söndag</span><span>12:00 – 20:00</span></div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Kontakt</div>
+      <div class="footer-contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.google.com/?q=Gunnestorpsvägen+135+Göteborg" target="_blank" rel="noopener">Gunnestorpsvägen 135<br>417 47 Göteborg</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 11.5 19.79 19.79 0 01.87 2.86 2 2 0 012.85 1h3a2 2 0 012 1.72c.128.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l.97-.97a2 2 0 012.11-.45c.907.339 1.85.572 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:+46314020400">031‑40 20 40</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        <a href="mailto:info@yoshidagroup.se">info@yoshidagroup.se</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Sushi Eki</span>
+    <span>Gunnestorpsvägen 135, 417 47 Göteborg</span>
+  </div>
 </footer>
 
 <script>
