@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobilvy – Sushi Eki</title>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="ios-frame.jsx"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #111008;
+    min-height: 100vh;
+    font-family: -apple-system, 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Sticky takeaway banner ── */
+  .takeaway-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #c0543c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+  }
+  .takeaway-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 24px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .takeaway-bar a:hover {
+    background: rgba(0,0,0,0.12);
+  }
+  .takeaway-bar svg {
+    flex-shrink: 0;
+  }
+  .takeaway-bar .num {
+    opacity: 0.85;
+    font-weight: 400;
+    font-size: 0.88rem;
+  }
+
+  /* ── Preview wrapper ── */
+  .preview-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 60px;
+    gap: 20px;
+  }
+
+  .device-label {
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .open-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #888;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 6px 14px;
+    transition: color 0.2s, border-color 0.2s;
+    margin-top: 4px;
+  }
+  .open-link:hover {
+    color: #ccc;
+    border-color: #555;
+  }
+</style>
+</head>
+<body>
+
+<!-- Sticky takeaway call-to-action -->
+<div class="takeaway-bar">
+  <a href="tel:+46314020400">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.9 11.5 19.79 19.79 0 01.87 2.86 2 2 0 012.85 1h3a2 2 0 012 1.72c.128.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l.97-.97a2 2 0 012.11-.45c.907.339 1.85.572 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+    Beställ Takeaway
+    <span class="num">031‑40 20 40</span>
+  </a>
+</div>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState } = React;
+
+function App() {
+  return (
+    <div className="preview-wrap">
+      <IOSDevice width={390} height={844}>
+        <iframe
+          src="index.html"
+          style={{ width: '390px', height: '100%', border: 'none', display: 'block' }}
+          title="Sushi Eki – mobilvy"
+        />
+      </IOSDevice>
+      <div className="device-label">iPhone 14 Pro — 390 × 844 px</div>
+      <a href="index.html" target="_blank" className="open-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+        </svg>
+        Öppna fullskärm
+      </a>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
